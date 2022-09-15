@@ -7,8 +7,7 @@ import org.springframework.context.annotation.Bean;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -21,17 +20,17 @@ public class commande implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idcommande;
     @ManyToOne(targetEntity = user.class)
-    @JoinColumn(name = "id_user",nullable = false)
-    private int iduser;
+    @JoinColumn(name = "iduser",nullable = false)
+    private int userid;
     @OneToOne(targetEntity = region.class)
-    @JoinColumn(name = "id_region",nullable = false)
-    private int idregion;
+    @JoinColumn(name = "idregion",nullable = false)
+    private int regionid;
     @ManyToOne(targetEntity = livreur.class)
-    @JoinColumn(name = "id_livreur" , nullable = false)
-    private int idlivreur;
+    @JoinColumn(name = "idlivreur" , nullable = false)
+    private int livreurid;
     @ManyToOne(targetEntity = produit.class)
-    @JoinColumn(name = "id_produit",nullable = false)
-    private int idproduit;
+    @JoinColumn(name = "idproduit",nullable = false)
+    private int produitid;
     @Column(nullable = false)
     private boolean livrer;
 }

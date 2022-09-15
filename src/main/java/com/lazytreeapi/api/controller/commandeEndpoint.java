@@ -1,6 +1,7 @@
 package com.lazytreeapi.api.controller;
 
 import com.lazytreeapi.api.model.commande;
+import com.lazytreeapi.api.model.region;
 import com.lazytreeapi.api.repository.commandeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -18,7 +19,7 @@ public class commandeEndpoint {
 
     @GetMapping("/commande")
     @ResponseBody
-    public List<commande> getByRegion(){
-        return commandeRepo.findAll();
+    public List<region> getByRegion(@RequestParam int id){
+        return commandeRepo.findbyid(id);
     }
 }
